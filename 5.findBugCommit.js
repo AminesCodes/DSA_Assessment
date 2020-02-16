@@ -111,21 +111,29 @@ let commits = [
 const identifyFirstBadCommit = (commits) => {
   let start = 0;
   let end = commits.length - 1;
-  let middle = Math.floor(((end - start) / 2));
+  let middle = 0;
  
   while (start < end-1) {
-    // let commitTime = commits[middle].timestamp;
+    middle = Math.floor((end + start) / 2);
     let commitStatus = commits[middle].status
-    console.log(start, middle, end)
 
     if (commitStatus === 'good') {
       start = middle
     } else {
       end = middle
     }
-    middle = Math.floor(start + ((end - start) / 2));
   }
-  return middle
+
+  if (commits[start].status === 'bad') {
+    return { index: start, commit: commits[start]}
+  }
+  if (commits[middle].status === 'bad') {
+    return { index: middle, commit: commits[middle]}
+  }
+  if (commits[end].status === 'bad') {
+    return { index: end, commit: commits[end]}
+  }
+  return {index: null, status: null}
 }
 
 console.log(identifyFirstBadCommit(commits))
