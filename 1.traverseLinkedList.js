@@ -23,7 +23,11 @@ n4.next = n5
 
 // Implement your code to traverse
 const traverse = (node) => {
-
+  let currentNode = node;
+  while (currentNode) {
+    console.log(currentNode.val)
+    currentNode = currentNode.next
+  }
 }
 
 // example
