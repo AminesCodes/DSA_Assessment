@@ -46,7 +46,6 @@ const sum = (stack) => {
   while (!temp.isEmpty()) {
     stack.push(temp.pop())
   }
-  
   // temp and the second while loop is to preserve the original stack 
   //(there may be another solution to copy the stack WITH IT'S FUNCTIONS)
   
