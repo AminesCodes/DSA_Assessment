@@ -46,7 +46,11 @@ h.right = i;
 
 // Implement your code here
 const printTreeAlphabeticalOrder = (root) => {
-
+  if (root) {
+    printTreeAlphabeticalOrder(root.left)
+    console.log(root.val)
+    printTreeAlphabeticalOrder(root.right)
+  }
 }
 
 printTreeAlphabeticalOrder(f)

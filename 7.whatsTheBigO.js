@@ -16,3 +16,5 @@ const bar = (arr) => {
     foo(arr)
   })
 }
+
+// O(n^2)
