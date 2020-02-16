@@ -34,7 +34,23 @@ s.push(14)
 
 // Implement your function here
 const sum = (stack) => {
+  const temp = new Stack() 
+  let stackSum = 0
 
+  while (!stack.isEmpty()) {
+    const currentValue = stack.pop()
+    stackSum += currentValue
+    temp.push(currentValue)
+  }
+
+  while (!temp.isEmpty()) {
+    stack.push(temp.pop())
+  }
+  console.log(stack)
+  // temp and the second while loop is to preserve the original stack 
+  //(there may be another solution to copy the stack WITH IT'S FUNCTIONS)
+  
+  return stackSum
 }
 
-sum(s) // should return 482
+console.log(sum(s)) // should return 482
