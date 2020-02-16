@@ -5,8 +5,12 @@
 
 
 const recursiveSum = (arr) => {
-
+    if (arr.length) {
+        const arrCopy = [...arr]
+        return arrCopy.pop() + recursiveSum(arrCopy)
+    }
+    return 0
 }
 
 const arr1 = [5, 2, 9, 11]
-recursiveSum(arr1) // should return 27
+console.log(recursiveSum(arr1)) // should return 27
